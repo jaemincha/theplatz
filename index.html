@@ -24,7 +24,7 @@
         /* HERO */
         .hero {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 2fr 3fr;  /* 1fr 1fr → 2fr 3fr */
             background: #faf8f5;
             border-bottom: 1px solid #ddd9d3;
             align-items: stretch;
@@ -177,12 +177,6 @@
         .cta-left h2 { font-family: 'DM Serif Display', serif; font-size: 24px; color: #f5f2ee; margin-bottom: 8px; }
         .cta-left p { font-size: 13px; color: #7a756f; font-weight: 300; }
         .cta-btns { display: flex; flex-direction: column; gap: 12px; align-items: flex-end; flex-shrink: 0; }
-        .btn-cta-fill {
-            background: #f5f2ee; color: #1a1815;
-            padding: 13px 32px; font-size: 11px; letter-spacing: 0.1em;
-            border: 2px solid #f5f2ee; cursor: pointer;
-            font-family: 'DM Sans', sans-serif; font-weight: 500; white-space: nowrap;
-        }
         .btn-cta-ghost {
             background: transparent; color: #f5f2ee;
             padding: 13px 32px; font-size: 11px; letter-spacing: 0.07em;
@@ -213,7 +207,7 @@
             .loc-grid { grid-template-columns: 1fr; }
             .cta { flex-direction: column; align-items: flex-start; padding: 48px 20px; }
             .cta-btns { align-items: flex-start; width: 100%; }
-            .btn-cta-fill, .btn-cta-ghost { width: 100%; text-align: center; }
+            .btn-cta-ghost { width: 100%; text-align: center; }
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
@@ -227,7 +221,6 @@
         <div class="logo-sub">YONGSAN · SEOUL</div>
     </div>
     <div class="nav-links">
-        <a href="#facilities">공간</a>
         <a href="#facilities">시설</a>
         <a href="#pricing">가격</a>
         <a href="#location">오시는길</a>
@@ -319,7 +312,7 @@
     <div class="price-grid">
         <div class="pcol">
             <div class="ptype">WEEKDAY</div>
-            <div class="pamt">5–7만원</div>
+            <div class="pamt">7만원</div>
             <div class="punit">시간당 · 최소 2시간</div>
             <div class="pfeat">월요일 – 목요일 <div class="pdot"></div></div>
             <div class="pfeat">주방 포함 <div class="pdot"></div></div>
@@ -328,7 +321,7 @@
         </div>
         <div class="pcol hi">
             <div class="ptype">WEEKEND</div>
-            <div class="pamt">8–12만원</div>
+            <div class="pamt">12만원</div>
             <div class="punit">시간당 · 최소 2시간</div>
             <div class="pfeat">금요일 – 일요일 <div class="pdot"></div></div>
             <div class="pfeat">주방 포함 <div class="pdot"></div></div>
@@ -337,7 +330,7 @@
         </div>
         <div class="pcol">
             <div class="ptype">SCREEN GOLF ADD-ON</div>
-            <div class="pamt">+1–2만원</div>
+            <div class="pamt">+2만원</div>
             <div class="punit">시간당 · 선택 옵션</div>
             <div class="pfeat">골프 시뮬레이터 이용 <div class="pdot"></div></div>
             <div class="pfeat">영상·음악 모드 포함 <div class="pdot"></div></div>
@@ -365,7 +358,7 @@
             <div class="locrow"><span class="lockey">지하철</span><span class="locval">6호선 이태원역 3번 출구 도보 7분</span></div>
             <div class="locrow"><span class="lockey">버스</span><span class="locval">이태원동 정류장 하차</span></div>
             <div class="locrow"><span class="lockey">주차</span><span class="locval">인근 공영주차장 이용 (유료)</span></div>
-            <div class="locrow"><span class="lockey">운영시간</span><span class="locval">09:00 – 02:00 예약제</span></div>
+            <div class="locrow"><span class="lockey">운영시간</span><span class="locval">09:00 – 24:00 예약제</span></div>
             <div class="locrow"><span class="lockey">문의</span><span class="locval">카카오채널 @더플라츠</span></div>
         </div>
     </div>
@@ -379,7 +372,7 @@
     </div>
     <div class="cta-btns">
         <a href="https://www.spacecloud.kr" target="_blank" style="text-decoration:none">
-            <button class="btn-cta-fill">스페이스클라우드 예약 →</button>
+            <button class="btn-cta-ghost">스페이스클라우드 예약 →</button>
         </a>
         <a href="https://pf.kakao.com" target="_blank" style="text-decoration:none">
             <button class="btn-cta-ghost">카카오 문의</button>
