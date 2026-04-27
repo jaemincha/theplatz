@@ -64,6 +64,61 @@
             display: block;
         }
 
+        /* HERO TEXT */
+        .hero-tag { font-size: 10px; letter-spacing: 0.22em; color: #a09890; margin-bottom: 20px; }
+        .hero h1 {
+            font-family: 'DM Serif Display', serif; font-size: 30px;
+            font-weight: 400; line-height: 1.25; color: #1a1815; margin-bottom: 20px;
+        }
+        .hero h1 em { font-style: italic; color: #6b6560; }
+        .hero-sub {
+            font-size: 13px; color: #6b6560; line-height: 1.85;
+            margin-bottom: 36px; max-width: 320px; font-weight: 300;
+        }
+        .hero-btns { display: flex; gap: 10px; }
+        .btn-fill {
+            background: #1a1815; color: #faf8f5; padding: 12px 28px;
+            font-size: 11px; letter-spacing: 0.1em; border: none; cursor: pointer;
+            font-family: 'DM Sans', sans-serif; font-weight: 500;
+        }
+        .btn-fill:hover { background: #333; }
+        .btn-line {
+            border: 1px solid #ccc8c2; color: #6b6560; padding: 11px 22px;
+            font-size: 11px; letter-spacing: 0.07em; background: none;
+            cursor: pointer; font-family: 'DM Sans', sans-serif;
+        }
+        .btn-line:hover { border-color: #1a1815; color: #1a1815; }
+
+        /* HERO SLIDER CONTROLS */
+        .hero-slide-label {
+            position: absolute; bottom: 16px; left: 20px;
+            font-size: 10px; letter-spacing: 0.1em; color: #f5f2ee;
+            background: rgba(26,24,21,0.5); padding: 4px 10px;
+            backdrop-filter: blur(4px);
+        }
+        .hero-slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(250,248,245,0.15); color: #f5f2ee;
+            border: 1px solid rgba(250,248,245,0.35);
+            width: 36px; height: 36px; font-size: 14px;
+            cursor: pointer; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            backdrop-filter: blur(4px); transition: background 0.2s;
+        }
+        .hero-slider-btn:hover { background: rgba(250,248,245,0.3); }
+        .hero-slider-btn.prev { left: 16px; }
+        .hero-slider-btn.next { right: 16px; }
+        .hero-slider-dots {
+            position: absolute; bottom: 16px; right: 20px;
+            display: flex; gap: 5px;
+        }
+        .hdot {
+            width: 5px; height: 5px; border-radius: 50%;
+            background: rgba(250,248,245,0.4); cursor: pointer;
+            transition: background 0.2s;
+        }
+        .hdot.active { background: #f5f2ee; }
+
         /* SECTIONS */
         section { padding: 72px 48px; border-top: 1px solid #ddd9d3; background: #faf8f5; }
         section.alt { background: #f5f2ee; }
