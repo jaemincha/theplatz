@@ -186,78 +186,66 @@
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
 
-        /* GALLERY SLIDER */
-        .gallery-slider {
-            position: relative;
-            background: #1a1815;
+        /* GALLERY GRID */
+        .gallery-grid-wrap {
+            background: #f5f2ee;
             border-top: 1px solid #ddd9d3;
-            overflow: hidden;
         }
-        .slider-track-wrap {
-            overflow: hidden;
+        .gallery-grid-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
         }
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .slide {
-            min-width: 100%;
+        .gp {
             position: relative;
-            height: 520px;
-            flex-shrink: 0;
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+            background: #e6e1d9;
         }
-        .slide img {
+        .gp img {
             width: 100%; height: 100%;
             object-fit: cover;
             display: block;
-            opacity: 0.85;
+            transition: transform 0.4s ease;
         }
-        .slide-label {
+        .gp:hover img { transform: scale(1.03); }
+        .gp .glabel {
             position: absolute;
-            bottom: 28px; left: 48px;
-            font-size: 11px; letter-spacing: 0.14em;
-            color: #f5f2ee;
-            background: rgba(26,24,21,0.55);
-            padding: 5px 14px;
-            backdrop-filter: blur(4px);
+            bottom: 12px; left: 14px;
+            font-size: 10px; letter-spacing: 0.1em;
+            color: #1a1815;
+            background: rgba(250,248,245,0.85);
+            padding: 3px 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .slider-btn {
-            position: absolute;
-            top: 50%; transform: translateY(-50%);
-            background: rgba(250,248,245,0.12);
-            color: #f5f2ee;
-            border: 1px solid rgba(250,248,245,0.25);
-            width: 44px; height: 44px;
-            font-size: 16px;
+        .gp:hover .glabel { opacity: 1; }
+        .gp.hidden { display: none; }
+
+        .gallery-more-wrap {
+            padding: 28px;
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #ddd9d3;
+        }
+        .gallery-more-btn {
+            background: none;
+            border: 1px solid #ccc8c2;
+            color: #6b6560;
+            padding: 11px 32px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
             cursor: pointer;
-            z-index: 10;
-            display: flex; align-items: center; justify-content: center;
-            transition: background 0.2s;
-            backdrop-filter: blur(4px);
+            font-family: 'DM Sans', sans-serif;
+            transition: border-color 0.2s, color 0.2s;
         }
-        .slider-btn:hover { background: rgba(250,248,245,0.25); }
-        .slider-btn.prev { left: 24px; }
-        .slider-btn.next { right: 24px; }
-        .slider-dots {
-            position: absolute;
-            bottom: 20px; right: 48px;
-            display: flex; gap: 6px;
+        .gallery-more-btn:hover {
+            border-color: #1a1815;
+            color: #1a1815;
         }
-        .dot {
-            width: 6px; height: 6px;
-            border-radius: 50%;
-            background: rgba(250,248,245,0.35);
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .dot.active { background: #f5f2ee; }
 
         @media (max-width: 640px) {
-            .slide { height: 280px; }
-            .slide-label { left: 20px; bottom: 20px; }
-            .slider-btn.prev { left: 12px; }
-            .slider-btn.next { right: 12px; }
-            .slider-dots { right: 20px; }
+            .gallery-grid-photos { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
 
@@ -294,39 +282,6 @@
         <!-- 메인 사진: src를 실제 이미지 경로로 교체하세요 -->
          <img src="images/gallery12.jpeg" alt="The Platz 메인 공간">
     </div>
-</div>
-
-<!-- GALLERY -->
-<section class="alt" id="gallery" style="padding-bottom: 0;">
-    <div class="sec-head">
-        <div>
-            <div class="sec-label">GALLERY</div>
-            <div class="sec-title">공간 둘러보기</div>
-        </div>
-    </div>
-</section>
-
-<div class="gallery-slider">
-    <button class="slider-btn prev" onclick="moveSlide(-1)">&#8592;</button>
-    <div class="slider-track-wrap">
-        <div class="slider-track" id="sliderTrack">
-            <div class="slide"><img src="images/gallery1.jpeg" alt="메인 라운지"><div class="slide-label">메인 라운지</div></div>
-            <div class="slide"><img src="images/gallery2.jpeg" alt="아일랜드 키친"><div class="slide-label">아일랜드 키친</div></div>
-            <div class="slide"><img src="images/gallery3.jpeg" alt="다이닝 테이블"><div class="slide-label">다이닝 테이블</div></div>
-            <div class="slide"><img src="images/gallery4.jpeg" alt="스크린골프"><div class="slide-label">스크린골프</div></div>
-            <div class="slide"><img src="images/gallery5.jpeg" alt="엔트런스"><div class="slide-label">엔트런스</div></div>
-            <div class="slide"><img src="images/gallery6.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery7.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery8.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery9.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery10.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery11.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery13.jpeg" alt=""><div class="slide-label"></div></div>
-            <div class="slide"><img src="images/gallery14.jpeg" alt=""><div class="slide-label"></div></div>
-        </div>
-    </div>
-    <button class="slider-btn next" onclick="moveSlide(1)">&#8594;</button>
-    <div class="slider-dots" id="sliderDots"></div>
 </div>
 
 <!-- FACILITIES -->
@@ -368,6 +323,39 @@
         </div>
     </div>
 </section>
+
+<!-- GALLERY -->
+<section class="alt" id="gallery" style="padding-bottom: 0;">
+    <div class="sec-head">
+        <div>
+            <div class="sec-label">GALLERY</div>
+            <div class="sec-title">공간 둘러보기</div>
+        </div>
+    </div>
+</section>
+
+<div class="gallery-grid-wrap">
+    <div class="gallery-grid-photos" id="galleryGrid">
+        <div class="gp"><img src="images/gallery1.jpeg" alt="메인 라운지"><div class="glabel">메인 라운지</div></div>
+        <div class="gp"><img src="images/gallery2.jpeg" alt="아일랜드 키친"><div class="glabel">아일랜드 키친</div></div>
+        <div class="gp"><img src="images/gallery3.jpeg" alt="다이닝 테이블"><div class="glabel">다이닝 테이블</div></div>
+        <div class="gp"><img src="images/gallery4.jpeg" alt="스크린골프"><div class="glabel">스크린골프</div></div>
+        <div class="gp"><img src="images/gallery5.jpeg" alt="엔트런스"><div class="glabel">엔트런스</div></div>
+        <div class="gp"><img src="images/gallery6.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery7.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery8.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery9.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery10.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery11.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery13.jpeg" alt=""><div class="glabel"></div></div>
+        <div class="gp hidden"><img src="images/gallery14.jpeg" alt=""><div class="glabel"></div></div>
+    </div>
+    <div class="gallery-more-wrap">
+        <button class="gallery-more-btn" id="galleryMoreBtn" onclick="toggleGallery()">
+            사진 더 보기 <span id="galleryCount">+8</span>
+        </button>
+    </div>
+</div>
 
 <!-- PRICING -->
 <section id="pricing">
@@ -455,28 +443,25 @@
 </footer>
 
 <script>
-    let current = 0;
-    const track = document.getElementById('sliderTrack');
-    const slides = document.querySelectorAll('.slide');
-    const dotsWrap = document.getElementById('sliderDots');
+    let expanded = false;
 
-    // 도트 생성
-    slides.forEach((_, i) => {
-        const d = document.createElement('div');
-        d.className = 'dot' + (i === 0 ? ' active' : '');
-        d.onclick = () => goTo(i);
-        dotsWrap.appendChild(d);
-    });
+    function toggleGallery() {
+        expanded = !expanded;
+        const hidden = document.querySelectorAll('.gp.hidden');
+        const btn = document.getElementById('galleryMoreBtn');
+        const count = document.getElementById('galleryCount');
 
-    function goTo(n) {
-        current = (n + slides.length) % slides.length;
-        track.style.transform = `translateX(-${current * 100}%)`;
-        document.querySelectorAll('.dot').forEach((d, i) =>
-            d.classList.toggle('active', i === current)
-        );
+        if (expanded) {
+            document.querySelectorAll('.gp').forEach(el => el.style.display = 'block');
+            btn.innerHTML = '사진 접기';
+        } else {
+            document.querySelectorAll('.gp').forEach((el, i) => {
+                el.style.display = i < 6 ? 'block' : 'none';
+            });
+            btn.innerHTML = '사진 더 보기 <span>+8</span>';
+            document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }
     }
-
-    function moveSlide(dir) { goTo(current + dir); }
 </script>
 
 </body>
