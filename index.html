@@ -209,12 +209,11 @@
             }
             .hero h1 { font-size: 24px; }
 
-            /* 슬라이더 */
+            /* 슬라이더 - Safari 호환 */
             .hero-slider {
                 position: relative;
                 width: 100%;
-                aspect-ratio: 3 / 2;
-                height: auto;
+                height: calc(100vw * 0.6667);  /* 뷰포트 너비 기준 3:2 비율 계산 */
                 overflow: hidden;
             }
             .hero-slider-track {
@@ -234,7 +233,6 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                object-position: center;
                 display: block;
             }
 
