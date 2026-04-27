@@ -200,18 +200,46 @@
         @media (max-width: 640px) {
             nav { padding: 16px 20px; }
             .nav-links { gap: 16px; }
+
+            /* HERO - 세로 레이아웃 */
             .hero { grid-template-columns: 1fr; }
-            .hero-left { padding: 48px 20px; border-right: none; border-bottom: 1px solid #ddd9d3; }
-            .hero-slider { min-height: 260px; }
+            .hero-left {
+                padding: 40px 20px;
+                border-right: none;
+                border-bottom: 1px solid #ddd9d3;
+            }
+            .hero h1 { font-size: 24px; }
+
+            /* 슬라이더 - 3:2 비율 유지 */
+            .hero-slider {
+                aspect-ratio: 3 / 2;
+                width: 100%;
+                height: auto;
+            }
+
             section { padding: 48px 20px; }
-            .feat-grid { grid-template-columns: 1fr; }
-            .feat { border-right: none; }
-            .price-grid { grid-template-columns: 1fr; }
-            .pcol { border-right: none; border-bottom: 1px solid #ddd9d3; }
+            .feat-grid { grid-template-columns: 1fr 1fr; }  /* 1fr → 1fr 1fr */
+            .feat { border-right: 1px solid #ddd9d3; }
+            .feat:nth-child(2n) { border-right: none; }
+            .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
+
+            .price-grid { grid-template-columns: 1fr 1fr; }  /* 세로 대신 2열 */
+            .pcol { border-right: 1px solid #ddd9d3; border-bottom: none; }
+            .pcol:nth-child(2n) { border-right: none; }
+            .pcol.hi { border-right: none; }
+            .pcol:last-child {
+                grid-column: 1 / -1;  /* SCREEN GOLF는 전체 너비 */
+                border-top: 1px solid #ddd9d3;
+                border-right: none;
+            }
+
             .loc-grid { grid-template-columns: 1fr; }
+            .mapbox { height: 240px; min-height: unset; }
+
             .cta { flex-direction: column; align-items: flex-start; padding: 48px 20px; }
             .cta-btns { align-items: flex-start; width: 100%; }
             .btn-cta-ghost { width: 100%; text-align: center; }
+
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
     </style>
