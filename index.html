@@ -259,9 +259,23 @@
             .loc-grid { grid-template-columns: 1fr; }
             .mapbox { height: 240px; min-height: unset; }
 
-            .cta { flex-direction: column; align-items: flex-start; padding: 48px 20px; }
-            .cta-btns { align-items: flex-start; width: 100%; }
-            .btn-cta-ghost { width: 100%; text-align: center; }
+            .cta {
+                flex-direction: row;      /* column → row */
+                align-items: center;
+                padding: 32px 20px;       /* 패딩 조금 줄이기 */
+                gap: 20px;
+            }
+            .cta-btns {
+                align-items: flex-end;
+                width: auto;              /* 100% 제거 */
+                flex-shrink: 0;
+            }
+            .btn-cta-ghost {
+                width: auto;
+                text-align: center;
+                padding: 11px 16px;       /* 모바일에서 버튼 패딩 조금 줄이기 */
+                font-size: 10px;
+            }
 
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
