@@ -240,21 +240,31 @@
             }
 
             section { padding: 48px 20px; }
-            .feat-grid { grid-template-columns: 1fr 1fr; }
-            .feat { border-right: 1px solid #ddd9d3; }
-            .feat:nth-child(2n) { border-right: none; }
-            .feat:nth-child(4), .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
-            .feat:nth-child(5) { border-bottom: 1px solid #ddd9d3; }
-
-            .price-grid { grid-template-columns: 1fr 1fr; }
-            .pcol { border-right: 1px solid #ddd9d3; border-bottom: none; }
-            .pcol:nth-child(2n) { border-right: none; }
-            .pcol.hi { border-right: none; }
-            .pcol:last-child {
-                grid-column: 1 / -1;
-                border-top: 1px solid #ddd9d3;
-                border-right: none;
+            .feat-grid {
+                grid-template-columns: 1fr 1fr;
+                border: 1px solid #ddd9d3;
             }
+            .feat {
+                border-right: 1px solid #ddd9d3;
+                border-bottom: 1px solid #ddd9d3;
+            }
+            .feat:nth-child(2n) { border-right: none; }
+            .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
+
+            .price-grid {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #ddd9d3;
+            }
+            .pcol {
+                border-right: none;
+                border-bottom: 1px solid #ddd9d3;
+            }
+            .pcol:last-child {
+                grid-column: auto;
+                border-bottom: none;
+            }
+            .pcol.hi { border-right: none; }
 
             .loc-grid { grid-template-columns: 1fr; }
             .mapbox { height: 240px; min-height: unset; }
@@ -278,6 +288,40 @@
             }
 
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+        }
+
+        @media (max-width: 640px) {
+            .price-tabs {
+                display: flex;
+                border: 1px solid #ddd9d3;
+                background: #faf8f5;
+            }
+            .price-tab {
+                flex: 1;
+                padding: 12px 8px;
+                font-size: 10px;
+                letter-spacing: 0.1em;
+                color: #a09890;
+                background: none;
+                border: none;
+                border-right: 1px solid #ddd9d3;
+                cursor: pointer;
+                font-family: 'DM Sans', sans-serif;
+                text-align: center;
+            }
+            .price-tab:last-child { border-right: none; }
+            .price-tab.active {
+                background: #1a1815;
+                color: #f5f2ee;
+            }
+            .price-grid { border-top: none; }
+            .pcol { display: none; }
+            .pcol.active { display: block; }
+        }
+
+        @media (min-width: 641px) {
+            .price-tabs { display: none; }
+            .pcol { display: block !important; }
         }
     </style>
 </head>
@@ -472,6 +516,33 @@
     }
 
     function heroMove(dir) { heroGoTo(heroCurrent + dir); }
+
+    // 모바일에서만 탭 동적 생성
+    if (window.innerWidth <= 640) {
+        const priceGrid = document.querySelector('.price-grid');
+        const cols = document.querySelectorAll('.pcol');
+
+        // 탭 생성
+        const tabWrap = document.createElement('div');
+        tabWrap.className = 'price-tabs';
+        const labels = ['WEEKDAY', 'WEEKEND', 'GOLF'];
+
+        labels.forEach((label, i) => {
+            const btn = document.createElement('button');
+            btn.className = 'price-tab' + (i === 0 ? ' active' : '');
+            btn.textContent = label;
+            btn.onclick = () => {
+                cols.forEach((col, j) => col.classList.toggle('active', j === i));
+                tabWrap.querySelectorAll('.price-tab').forEach((t, j) => t.classList.toggle('active', j === i));
+            };
+            tabWrap.appendChild(btn);
+        });
+
+        priceGrid.parentNode.insertBefore(tabWrap, priceGrid);
+
+        // 첫번째만 보이게
+        cols.forEach((col, i) => col.classList.toggle('active', i === 0));
+    }
 </script>
 
 </body>
