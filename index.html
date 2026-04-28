@@ -24,7 +24,7 @@
         /* HERO */
         .hero {
             display: grid;
-            grid-template-columns: 2fr 3fr;  /* 1fr 1fr → 2fr 3fr */
+            grid-template-columns: 2fr 3fr;
             background: #faf8f5;
             border-bottom: 1px solid #ddd9d3;
             align-items: stretch;
@@ -35,12 +35,12 @@
             border-right: 1px solid #ddd9d3;
         }
 
-        /* HERO SLIDER — 사진 비율 우선 */
+        /* HERO SLIDER */
         .hero-slider {
             position: relative;
             overflow: hidden;
             background: #e6e1d9;
-            aspect-ratio: 3 / 2;   /* 사진 비율 고정 */
+            aspect-ratio: 3 / 2;
             width: 100%;
             height: auto;
         }
@@ -59,7 +59,7 @@
         .hero-slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;     /* 3:2 고정이라 cover 써도 잘 안잘림 */
+            object-fit: cover;
             object-position: center;
             display: block;
         }
@@ -129,36 +129,35 @@
         .feat-t { font-size: 13px; font-weight: 500; color: #1a1815; margin-bottom: 6px; }
         .feat-d { font-size: 12px; color: #6b6560; line-height: 1.8; font-weight: 300; }
 
-        /* PRICING */
+        /* PRICING — 모든 카드 동일 스타일 */
         .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #ddd9d3; }
-        .pcol { padding: 36px 28px; border-right: 1px solid #ddd9d3; }
+        .pcol { padding: 36px 28px; border-right: 1px solid #ddd9d3; background: none; }
         .pcol:last-child { border-right: none; }
-        .pcol.hi { background: #1a1815; }
+        .pcol.hi { background: none; }
         .ptype { font-size: 10px; letter-spacing: 0.18em; color: #a09890; margin-bottom: 22px; }
-        .pcol.hi .ptype { color: rgba(250,248,245,0.45); }
+        .pcol.hi .ptype { color: #a09890; }
         .pamt { font-family: 'DM Serif Display', serif; font-size: 28px; color: #1a1815; margin-bottom: 4px; }
-        .pcol.hi .pamt { color: #faf8f5; }
+        .pcol.hi .pamt { color: #1a1815; }
         .punit { font-size: 11px; color: #a09890; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #ddd9d3; }
-        .pcol.hi .punit { color: rgba(250,248,245,0.45); border-color: rgba(255,255,255,0.1); }
+        .pcol.hi .punit { color: #a09890; border-color: #ddd9d3; }
         .pfeat {
             font-size: 12px; color: #6b6560; padding: 8px 0;
             border-bottom: 1px solid #ddd9d3;
             display: flex; justify-content: space-between; font-weight: 300;
         }
         .pfeat:last-child { border-bottom: none; }
-        .pcol.hi .pfeat { color: rgba(250,248,245,0.55); border-color: rgba(255,255,255,0.1); }
+        .pcol.hi .pfeat { color: #6b6560; border-color: #ddd9d3; }
 
         /* LOCATION */
         .loc-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 32px;
-            align-items: stretch;  /* 추가 */
+            align-items: stretch;
         }
         .mapbox {
             background: #eeeae4; border: 1px solid #ddd9d3;
-            height: auto;        /* 220px → auto */
-            min-height: 100%;    /* 오른쪽 텍스트 높이에 맞게 늘어남 */
+            height: auto; min-height: 100%;
             overflow: hidden;
         }
         .mapbox iframe { width: 100%; height: 100%; border: none; }
@@ -190,6 +189,9 @@
         .flogo { font-size: 11px; letter-spacing: 0.18em; color: #6b6560; font-weight: 500; }
         .fcopy { font-size: 11px; color: #a09890; font-weight: 300; }
 
+        /* PRICE TABS 기본 숨김 */
+        .price-tabs { display: none; }
+
         /* MOBILE */
         @media (max-width: 640px) {
             nav { padding: 16px 20px; }
@@ -203,12 +205,13 @@
             }
             .hero h1 { font-size: 24px; }
 
-            /* 슬라이더 - Safari 호환 */
+            /* 슬라이더 Safari 호환 */
             .hero-slider {
                 width: 100%;
                 height: calc(100vw * 0.6667);
                 position: relative;
                 overflow: hidden;
+                aspect-ratio: unset;
             }
             .hero-slider-track {
                 display: flex;
@@ -219,14 +222,14 @@
             }
             .hero-slide {
                 min-width: 100%;
-                height: calc(100vw * 0.6667);  /* 슬라이드에도 직접 지정 */
+                height: calc(100vw * 0.6667);
                 flex-shrink: 0;
                 position: relative;
                 overflow: hidden;
             }
             .hero-slide img {
                 width: 100%;
-                height: calc(100vw * 0.6667);  /* img에도 직접 지정 */
+                height: calc(100vw * 0.6667);
                 object-fit: contain;
                 object-position: center;
                 display: block;
@@ -234,62 +237,20 @@
             }
 
             section { padding: 48px 20px; }
+
+            /* FACILITIES 2열 */
             .feat-grid { grid-template-columns: 1fr 1fr; }
             .feat { border-right: 1px solid #ddd9d3; border-bottom: 1px solid #ddd9d3; }
+            .feat:nth-child(3n) { border-right: 1px solid #ddd9d3; }
             .feat:nth-child(2n) { border-right: none; }
-            .feat:nth-child(3n) { border-right: 1px solid #ddd9d3; }  /* 데스크탑 규칙 리셋 */
             .feat:nth-child(3n):nth-child(2n) { border-right: none; }
             .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
 
-            .price-grid {
-                display: flex;
-                flex-direction: column;
-                border: 1px solid #ddd9d3;
-            }
-            .pcol {
-                border-right: none;
-                border-bottom: 1px solid #ddd9d3;
-            }
-            .pcol:last-child {
-                grid-column: auto;
-                border-bottom: none;
-            }
-            .pcol.hi { border-right: none; }
-
-            .loc-grid { grid-template-columns: 1fr; }
-            .mapbox { height: 240px; min-height: unset; }
-
-            .cta {
-                flex-direction: row;      /* column → row */
-                align-items: center;
-                padding: 32px 20px;       /* 패딩 조금 줄이기 */
-                gap: 20px;
-            }
-            .cta-btns {
-                align-items: flex-end;
-                width: auto;              /* 100% 제거 */
-                flex-shrink: 0;
-            }
-            .btn-cta-ghost {
-                width: auto;
-                text-align: center;
-                padding: 11px 16px;       /* 모바일에서 버튼 패딩 조금 줄이기 */
-                font-size: 10px;
-            }
-
-            footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
-
-            .pcol.hi { background: #6b6560; }
-            .pcol.hi .pamt { color: #f5f2ee; }
-            .pcol.hi .ptype { color: rgba(250,248,245,0.7); }
-            .pcol.hi .punit { color: rgba(250,248,245,0.7); border-color: rgba(255,255,255,0.2); }
-            .pcol.hi .pfeat { color: rgba(250,248,245,0.8); border-color: rgba(255,255,255,0.2); }
-        }
-
-        @media (max-width: 640px) {
+            /* PRICING 탭 */
             .price-tabs {
                 display: flex;
                 border: 1px solid #ddd9d3;
+                border-bottom: none;
                 background: #faf8f5;
             }
             .price-tab {
@@ -304,19 +265,51 @@
                 cursor: pointer;
                 font-family: 'DM Sans', sans-serif;
                 text-align: center;
+                transition: color 0.2s;
             }
             .price-tab:last-child { border-right: none; }
             .price-tab.active {
-                background: #6b6560;   /* #1a1815 → 부드러운 웜그레이 */
-                color: #f5f2ee;
+                color: #1a1815;
+                font-weight: 500;
+                border-bottom: 2px solid #1a1815;
             }
-            .price-grid { border-top: none; }
-            .pcol { display: none; }
+            .price-grid {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid #ddd9d3;
+            }
+            .pcol { display: none; border-right: none; border-bottom: none; }
             .pcol.active { display: block; }
+            .pcol:last-child { border-right: none; }
+
+            /* LOCATION */
+            .loc-grid { grid-template-columns: 1fr; }
+            .mapbox { height: 240px; min-height: unset; }
+
+            /* CTA */
+            .cta {
+                flex-direction: row;
+                align-items: center;
+                padding: 32px 20px;
+                gap: 20px;
+            }
+            .cta-btns {
+                align-items: flex-end;
+                width: auto;
+                flex-shrink: 0;
+            }
+            .btn-cta-ghost {
+                width: auto;
+                text-align: center;
+                padding: 11px 16px;
+                font-size: 10px;
+            }
+
+            footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
         }
 
         @media (min-width: 641px) {
-            .price-tabs { display: none; }
+            .price-tabs { display: none !important; }
             .pcol { display: block !important; }
         }
     </style>
@@ -417,28 +410,28 @@
             <div class="ptype">WEEKDAY</div>
             <div class="pamt">7만원</div>
             <div class="punit">시간당 · 최소 2시간</div>
-            <div class="pfeat">월요일 – 목요일 </div>
-            <div class="pfeat">주방 포함 </div>
-            <div class="pfeat">최소 2시간 예약 </div>
-            <div class="pfeat">청소보증금 별도 </div>
+            <div class="pfeat">월요일 – 목요일</div>
+            <div class="pfeat">주방 포함</div>
+            <div class="pfeat">최소 2시간 예약</div>
+            <div class="pfeat">청소보증금 별도</div>
         </div>
         <div class="pcol hi">
             <div class="ptype">WEEKEND</div>
             <div class="pamt">12만원</div>
             <div class="punit">시간당 · 최소 2시간</div>
-            <div class="pfeat">금요일 – 일요일 </div>
-            <div class="pfeat">주방 포함 </div>
-            <div class="pfeat">최소 2시간 예약 </div>
-            <div class="pfeat">청소보증금 별도 </div>
+            <div class="pfeat">금요일 – 일요일</div>
+            <div class="pfeat">주방 포함</div>
+            <div class="pfeat">최소 2시간 예약</div>
+            <div class="pfeat">청소보증금 별도</div>
         </div>
         <div class="pcol">
             <div class="ptype">SCREEN GOLF ADD-ON</div>
             <div class="pamt">+2만원</div>
             <div class="punit">시간당 · 선택 옵션</div>
-            <div class="pfeat">골프 시뮬레이터 이용 </div>
-            <div class="pfeat">영상·음악 모드 포함 </div>
-            <div class="pfeat">평일·주말 동일 </div>
-            <div class="pfeat">기본 대여에 추가 </div>
+            <div class="pfeat">골프 시뮬레이터 이용</div>
+            <div class="pfeat">영상·음악 모드 포함</div>
+            <div class="pfeat">평일·주말 동일</div>
+            <div class="pfeat">기본 대여에 추가</div>
         </div>
     </div>
 </section>
@@ -495,7 +488,6 @@
     const heroSlides = document.querySelectorAll('.hero-slide');
     const heroDotsWrap = document.getElementById('heroDots');
 
-    // 도트 생성
     heroSlides.forEach((_, i) => {
         const d = document.createElement('div');
         d.className = 'hdot' + (i === 0 ? ' active' : '');
@@ -517,8 +509,6 @@
     if (window.innerWidth <= 640) {
         const priceGrid = document.querySelector('.price-grid');
         const cols = document.querySelectorAll('.pcol');
-
-        // 탭 생성
         const tabWrap = document.createElement('div');
         tabWrap.className = 'price-tabs';
         const labels = ['WEEKDAY', 'WEEKEND', 'GOLF'];
@@ -535,8 +525,6 @@
         });
 
         priceGrid.parentNode.insertBefore(tabWrap, priceGrid);
-
-        // 첫번째만 보이게
         cols.forEach((col, i) => col.classList.toggle('active', i === 0));
     }
 </script>
