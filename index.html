@@ -90,12 +90,6 @@
         .btn-line:hover { border-color: #1a1815; color: #1a1815; }
 
         /* HERO SLIDER CONTROLS */
-        .hero-slide-label {
-            position: absolute; bottom: 16px; left: 20px;
-            font-size: 10px; letter-spacing: 0.1em; color: #f5f2ee;
-            background: rgba(26,24,21,0.5); padding: 4px 10px;
-            backdrop-filter: blur(4px);
-        }
         .hero-slider-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(250,248,245,0.15); color: #f5f2ee;
@@ -240,15 +234,11 @@
             }
 
             section { padding: 48px 20px; }
-            .feat-grid {
-                grid-template-columns: 1fr 1fr;
-                border: 1px solid #ddd9d3;
-            }
-            .feat {
-                border-right: 1px solid #ddd9d3;
-                border-bottom: 1px solid #ddd9d3;
-            }
+            .feat-grid { grid-template-columns: 1fr 1fr; }
+            .feat { border-right: 1px solid #ddd9d3; border-bottom: 1px solid #ddd9d3; }
             .feat:nth-child(2n) { border-right: none; }
+            .feat:nth-child(3n) { border-right: 1px solid #ddd9d3; }  /* 데스크탑 규칙 리셋 */
+            .feat:nth-child(3n):nth-child(2n) { border-right: none; }
             .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
 
             .price-grid {
@@ -288,6 +278,12 @@
             }
 
             footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+
+            .pcol.hi { background: #6b6560; }
+            .pcol.hi .pamt { color: #f5f2ee; }
+            .pcol.hi .ptype { color: rgba(250,248,245,0.7); }
+            .pcol.hi .punit { color: rgba(250,248,245,0.7); border-color: rgba(255,255,255,0.2); }
+            .pcol.hi .pfeat { color: rgba(250,248,245,0.8); border-color: rgba(255,255,255,0.2); }
         }
 
         @media (max-width: 640px) {
@@ -311,7 +307,7 @@
             }
             .price-tab:last-child { border-right: none; }
             .price-tab.active {
-                background: #1a1815;
+                background: #6b6560;   /* #1a1815 → 부드러운 웜그레이 */
                 color: #f5f2ee;
             }
             .price-grid { border-top: none; }
@@ -345,7 +341,7 @@
 <div class="hero">
     <div class="hero-left">
         <div class="hero-tag">PRIVATE SPACE RENTAL</div>
-        <h1>The Space Between<br><em>Ordinary and Extraordinary</em></h1>
+        <h1>The Space for<br><em>Ordinary and Extraordinary</em></h1>
         <p class="hero-sub">138m² 독채 공간에서 스크린골프, 프라이빗 다이닝, 소규모 모임까지. 용산 대사관로의 건축적 공간을 온전히 경험하세요.</p>
         <div class="hero-btns">
             <button class="btn-fill" onclick="location.href='#reservation'">예약하기</button>
@@ -355,20 +351,20 @@
 
     <div class="hero-slider" id="heroSlider">
         <div class="hero-slider-track" id="heroTrack">
-            <div class="hero-slide"><img src="images/gallery12.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery1.jpeg" alt="메인 라운지"><div class="hero-slide-label">메인 라운지</div></div>
-            <div class="hero-slide"><img src="images/gallery2.jpeg" alt="아일랜드 키친"><div class="hero-slide-label">아일랜드 키친</div></div>
-            <div class="hero-slide"><img src="images/gallery3.jpeg" alt="다이닝 테이블"><div class="hero-slide-label">다이닝 테이블</div></div>
-            <div class="hero-slide"><img src="images/gallery4.jpeg" alt="스크린골프"><div class="hero-slide-label">스크린골프</div></div>
-            <div class="hero-slide"><img src="images/gallery5.jpeg" alt="엔트런스"><div class="hero-slide-label">엔트런스</div></div>
-            <div class="hero-slide"><img src="images/gallery6.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery7.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery8.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery9.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery10.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery11.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery13.jpeg" alt=""><div class="hero-slide-label"></div></div>
-            <div class="hero-slide"><img src="images/gallery14.jpeg" alt=""><div class="hero-slide-label"></div></div>
+            <div class="hero-slide"><img src="images/gallery12.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery1.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery2.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery3.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery4.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery5.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery6.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery7.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery8.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery9.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery10.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery11.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery13.jpeg" alt=""></div>
+            <div class="hero-slide"><img src="images/gallery14.jpeg" alt=""></div>
         </div>
         <button class="hero-slider-btn prev" onclick="heroMove(-1)">&#8592;</button>
         <button class="hero-slider-btn next" onclick="heroMove(1)">&#8594;</button>
