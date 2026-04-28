@@ -130,7 +130,7 @@
         .feat-d { font-size: 12px; color: #6b6560; line-height: 1.8; font-weight: 300; }
 
         /* PRICING — 모든 카드 동일 스타일 */
-        .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #ddd9d3; }
+        .price-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid #ddd9d3; }
         .pcol { padding: 36px 28px; border-right: 1px solid #ddd9d3; background: none; }
         .pcol:last-child { border-right: none; }
         .pcol.hi { background: none; }
@@ -336,7 +336,7 @@
     <div class="hero-left">
         <div class="hero-tag">PRIVATE SPACE RENTAL</div>
         <h1>The Space for<br><em>Ordinary and Extraordinary</em></h1>
-        <p class="hero-sub">138m² 독채 공간에서 스크린골프, 프라이빗 다이닝, 소규모 모임까지. 용산 대사관로의 건축적 공간을 온전히 경험하세요.</p>
+        <p class="hero-sub">138m² 전용 공간에서 스크린골프, 프라이빗 다이닝, 소규모 모임까지. 용산 대사관로의 건축적 공간을 온전히 경험하세요.</p>
         <div class="hero-btns">
             <button class="btn-fill" onclick="location.href='#reservation'">예약하기</button>
             <button class="btn-line" onclick="location.href='#facilities'">시설 안내</button>
@@ -408,31 +408,40 @@
     </div>
     <div class="price-grid">
         <div class="pcol">
-            <div class="ptype">MONDAY - THURSDAY</div>
-            <div class="pamt">7만원</div>
-            <div class="punit">시간당 · 최소 2시간</div>
-            <div class="pfeat">월요일 – 목요일</div>
+            <div class="ptype">WEEKDAY DAYTIME</div>
+            <div class="pamt">30만원</div>
+            <div class="punit">10:00 – 17:00 · 기준 6인</div>
+            <div class="pfeat">평일 주간 7시간</div>
             <div class="pfeat">주방 포함</div>
-            <div class="pfeat">최소 2시간 예약</div>
-            <div class="pfeat">청소보증금 별도</div>
-        </div>
-        <div class="pcol hi">
-            <div class="ptype">FRIDAY & WEEKEND</div>
-            <div class="pamt">12만원</div>
-            <div class="punit">시간당 · 최소 2시간</div>
-            <div class="pfeat">금요일 – 일요일</div>
-            <div class="pfeat">주방 포함</div>
-            <div class="pfeat">최소 2시간 예약</div>
-            <div class="pfeat">청소보증금 별도</div>
+            <div class="pfeat">추가 1인 +1만원</div>
+            <div class="pfeat">스크린골프 +5만원</div>
         </div>
         <div class="pcol">
-            <div class="ptype">SCREEN GOLF ADD-ON</div>
-            <div class="pamt">+2만원</div>
-            <div class="punit">시간당 · 선택 옵션</div>
-            <div class="pfeat">골프 시뮬레이터 이용</div>
-            <div class="pfeat">영상·음악 모드 포함</div>
-            <div class="pfeat">평일·주말 동일</div>
-            <div class="pfeat">기본 대여에 추가</div>
+            <div class="ptype">WEEKDAY EVENING</div>
+            <div class="pamt">40만원</div>
+            <div class="punit">18:00 – 24:00 · 기준 6인</div>
+            <div class="pfeat">평일 야간 6시간</div>
+            <div class="pfeat">주방 포함</div>
+            <div class="pfeat">추가 1인 +1만원</div>
+            <div class="pfeat">스크린골프 +5만원</div>
+        </div>
+        <div class="pcol">
+            <div class="ptype">WEEKEND DAYTIME</div>
+            <div class="pamt">40만원</div>
+            <div class="punit">10:00 – 17:00 · 기준 6인</div>
+            <div class="pfeat">주말 주간 7시간</div>
+            <div class="pfeat">주방 포함</div>
+            <div class="pfeat">추가 1인 +1만원</div>
+            <div class="pfeat">스크린골프 +5만원</div>
+        </div>
+        <div class="pcol hi">
+            <div class="ptype">WEEKEND EVENING</div>
+            <div class="pamt">55만원</div>
+            <div class="punit">18:00 – 24:00 · 기준 6인</div>
+            <div class="pfeat">주말 야간 6시간</div>
+            <div class="pfeat">주방 포함</div>
+            <div class="pfeat">추가 1인 +1만원</div>
+            <div class="pfeat">스크린골프 +5만원</div>
         </div>
     </div>
 </section>
@@ -512,7 +521,7 @@
         const cols = document.querySelectorAll('.pcol');
         const tabWrap = document.createElement('div');
         tabWrap.className = 'price-tabs';
-        const labels = ['WEEKDAY', 'WEEKEND', 'GOLF'];
+        const labels = ['평일 주간', '평일 야간', '주말 주간', '주말 야간'];
 
         labels.forEach((label, i) => {
             const btn = document.createElement('button');
