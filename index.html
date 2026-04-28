@@ -241,9 +241,10 @@
             /* FACILITIES 2열 */
             .feat-grid { grid-template-columns: 1fr 1fr; }
             .feat { border-right: 1px solid #ddd9d3; border-bottom: 1px solid #ddd9d3; }
-            .feat:nth-child(3n) { border-right: 1px solid #ddd9d3; }
+            .feat:nth-child(3n) { border-right: 1px solid #ddd9d3; }  /* 데스크탑 규칙 리셋 */
             .feat:nth-child(2n) { border-right: none; }
             .feat:nth-child(3n):nth-child(2n) { border-right: none; }
+            .feat:nth-child(4) { border-bottom: 1px solid #ddd9d3; }  /* 4번째 아래 선 유지 */
             .feat:nth-child(5), .feat:nth-child(6) { border-bottom: none; }
 
             /* PRICING 탭 */
